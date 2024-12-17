@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Project Team</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            overflow-x:hidden;
+        }
+        .team-container {
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 0px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: rgb(6, 31, 156);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            align-items: center;
+            justify-items: center;
+        }
+        .team-member {
+            position: relative;
+            width: 450px;
+            height: 700px;
+            border-radius: 0;
+            overflow: hidden;
+        }
+        .team-member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .team-member span {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="team-container">
+    <h1>Project Team</h1>
+
+    <div class="team-grid">
+        <div class="team-member">
+            <img src="Team-members/download.jpeg" alt="Ahmed"/>
+            <span>Ahmed Tamer 321210164</span>
+        </div>
+        <div class="team-member">
+            <img src="Team-members/witcher.jpg" alt="Abrar"/>
+            <span>Abrar Mohamed  321213120</span>
+        </div>
+        <div class="team-member">
+            <img src="Team-members/img2.jpg" alt="Amira"/>
+            <span>Amira  321213262</span>
+        </div>
+        <div class="team-member">
+            <img src="Team-members/img3.jpg" alt="Esraa"/>
+            <span>Esraa Ebrahim 321213380</span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
