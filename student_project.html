@@ -2,29 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Team</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             color: #333;
-            overflow-x:hidden;
+            overflow-x: hidden;
+            margin: 0;
         }
+
         .team-container {
             margin: auto;
-            background-color: white;
+            background-color: #333;
             padding: 20px;
-            border-radius: 0px;
+            border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 1200px;
         }
+
         h1 {
-            color: rgb(6, 31, 156);
+            color: black;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 5px;
         }
+
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -32,27 +36,60 @@
             align-items: center;
             justify-items: center;
         }
+
         .team-member {
             position: relative;
-            width: 450px;
-            height: 700px;
-            border-radius: 0;
+            width: 100%;
+            height: 400px; /* Adjusted for better proportions */
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
+
         .team-member img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         .team-member span {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             color: white;
             padding: 10px;
             font-size: 14px;
+            text-align: center;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-member {
+                height: 350px; /* Adjust height for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+            }
+
+            .team-member {
+                height: 300px; /* Smaller height for very small screens */
+            }
         }
     </style>
 </head>
@@ -63,20 +100,16 @@
 
     <div class="team-grid">
         <div class="team-member">
-            <img src="Team-members/download.jpeg" alt="Ahmed"/>
-            <span>Ahmed Tamer 321210164</span>
+            <img src="Team-members/JM31.jpg" alt="JM31"/>
+            <span>Just Mahmoud 321210164</span>
         </div>
         <div class="team-member">
-            <img src="Team-members/witcher.jpg" alt="Abrar"/>
-            <span>Abrar Mohamed  321213120</span>
+            <img src="Team-members/witcher.jpg" alt="Amany"/>
+            <span>Amany Hesham 321213120</span>
         </div>
         <div class="team-member">
-            <img src="Team-members/img2.jpg" alt="Amira"/>
-            <span>Amira  321213262</span>
-        </div>
-        <div class="team-member">
-            <img src="Team-members/img3.jpg" alt="Esraa"/>
-            <span>Esraa Ebrahim 321213380</span>
+            <img src="Team-members/img2.jpg" alt="Nosyba"/>
+            <span>Nosieba  321213262</span>
         </div>
     </div>
 
