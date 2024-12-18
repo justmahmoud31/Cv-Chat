@@ -8,31 +8,67 @@ public class Server {
 
             while (true) {
                 Socket socket = serverSocket.accept();
-                DataInputStream input = new DataInputStream(socket.getInputStream());
-                DataOutputStream output = new DataOutputStream(socket.getOutputStream());
+                System.out.println("Client connected.");
 
-                String request = input.readUTF();
-                System.out.println("Client request: " + request);
+                new Thread(() -> {
+                    try (DataInputStream input = new DataInputStream(socket.getInputStream());
+                         DataOutputStream output = new DataOutputStream(socket.getOutputStream())) {
 
-                File htmlFile = new File("student_project.html");
-                BufferedReader reader = new BufferedReader(new FileReader(htmlFile));
+                        while (true) {
+                            String userName = input.readUTF();
+                            System.out.println("Received username: " + userName);
 
-                String line;
-                StringBuilder response = new StringBuilder();
+                            if ("exit".equalsIgnoreCase(userName)) {
+                                System.out.println("Client requested to exit.");
+                                break;
+                            }
 
-                while ((line = reader.readLine()) != null) {
-                    response.append(line + "\n");
-                }
+                            // Lookup user details (mock example)
+                            String userNumber = null;
+                            String imagePath = null;
 
-                output.writeUTF(response.toString());
+                            switch (userName) {
+                                case "Ahmed Amin":
+                                    userNumber = "321213001";
+                                    imagePath = "Team-members/witcher.jpg";
+                                    break;
+                                case "Mostafa Amin":
+                                    userNumber = "321213002";
+                                    imagePath = "Team-members/download.jpeg";
+                                    break;
+                                case "Marwan Mostafa":
+                                    userNumber = "321213002";
+                                    imagePath = "Team-members/img2.jpg";
+                                    break;
+                                case "Mostafa Karam":
+                                    userNumber = "321213002";
+                                    imagePath = "Team-members/img3.jpg";
+                                    break;
+                                case "Just Mahmoud":
+                                    userNumber = "321213002";
+                                    imagePath = "Team-members/JM31.jpg";
+                                    break;
+                                // Add more users as needed
+                                default:
+                                    output.writeUTF("User not found.");
+                                    continue;
+                            }
 
-                String message = input.readUTF();
-                System.out.println("Received message: " + message);
-
-                reader.close();
-                socket.close();
+                            String response = "Number: " + userNumber + "\nImage: " + imagePath;
+                            output.writeUTF(response);
+                        }
+                    } catch (IOException e) {
+                        System.err.println("Error handling client: " + e.getMessage());
+                    } finally {
+                        try {
+                            socket.close();
+                        } catch (IOException e) {
+                            System.err.println("Error closing socket: " + e.getMessage());
+                        }
+                        System.out.println("Client disconnected.");
+                    }
+                }).start();
             }
         }
-
     }
 }
